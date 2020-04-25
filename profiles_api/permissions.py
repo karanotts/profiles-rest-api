@@ -9,7 +9,9 @@ class UpdateOwnProfile(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        return obj.id == request.user.id # True if logged in user is the user object they're trying to edit
+        return (
+            obj.id == request.user.id
+        )  # True if logged in user is the user object they're trying to edit
 
 
 class UpdateOwnStatus(permissions.BasePermission):
